@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English Global Exam · 4º ESO</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">EN</span>
+    <div>
+      <h1>English Global Exam</h1>
+      <p class="sub">4º ESO · Revision &amp; exam generator</p>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-view="home">Home</button>
+    <button class="tab" data-view="vocab">Vocab</button>
+    <button class="tab" data-view="grammar">Grammar</button>
+    <button class="tab" data-view="training">Training</button>
+    <button class="tab" data-view="exam">Exam maker</button>
+  </nav>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <h2>Revise smarter for your global exam</h2>
+      <p>Five units of vocabulary and grammar, with flashcards, training exercises and a printable exam generator.</p>
+    </div>
+    <div class="grid cards">
+      <button class="card-link" data-go="vocab">
+        <h3>Vocabulary</h3>
+        <p>Flashcards and translation quiz by unit and section.</p>
+      </button>
+      <button class="card-link" data-go="grammar">
+        <h3>Grammar</h3>
+        <p>Reference notes for all five units with examples.</p>
+      </button>
+      <button class="card-link" data-go="training">
+        <h3>Training</h3>
+        <p>Mixed exercises with instant feedback.</p>
+      </button>
+      <button class="card-link" data-go="exam">
+        <h3>Exam maker</h3>
+        <p>Generate a printable PDF exam.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- VOCAB -->
+  <section class="view" id="view-vocab">
+    <h2>Vocabulary</h2>
+    <div class="controls">
+      <label>Unit
+        <select id="vocab-unit"></select>
+      </label>
+      <label>Section
+        <select id="vocab-section"></select>
+      </label>
+      <label>Mode
+        <select id="vocab-mode">
+          <option value="list">List</option>
+          <option value="flashcards">Flashcards</option>
+          <option value="quiz">Translation quiz</option>
+        </select>
+      </label>
+      <label>Direction
+        <select id="vocab-direction">
+          <option value="en-es">EN → ES</option>
+          <option value="es-en">ES → EN</option>
+        </select>
+      </label>
+    </div>
+    <div id="vocab-area" class="panel"></div>
+  </section>
+
+  <!-- GRAMMAR -->
+  <section class="view" id="view-grammar">
+    <h2>Grammar reference</h2>
+    <div class="controls">
+      <label>Unit
+        <select id="grammar-unit"></select>
+      </label>
+    </div>
+    <div id="grammar-area" class="panel"></div>
+  </section>
+
+  <!-- TRAINING -->
+  <section class="view" id="view-training">
+    <h2>Training exercises</h2>
+    <div class="controls">
+      <label>Units
+        <select id="train-unit" multiple size="5"></select>
+      </label>
+      <label>Types
+        <select id="train-types" multiple size="5">
+          <option value="gap-fill" selected>Gap fill</option>
+          <option value="multiple-choice" selected>Multiple choice</option>
+          <option value="transformation" selected>Transformation</option>
+          <option value="translation" selected>Translation</option>
+          <option value="matching" selected>Matching</option>
+        </select>
+      </label>
+      <label>How many
+        <select id="train-count">
+          <option>5</option>
+          <option selected>10</option>
+          <option>15</option>
+          <option>20</option>
+        </select>
+      </label>
+      <button class="btn primary" id="train-start">Start session</button>
+    </div>
+    <div id="train-area" class="panel"></div>
+  </section>
+
+  <!-- EXAM MAKER -->
+  <section class="view" id="view-exam">
+    <h2>Exam PDF maker</h2>
+    <p class="muted">Pick units and exercise types, choose how many of each, and download a printable exam.</p>
+    <div class="controls">
+      <label>Title
+        <input type="text" id="exam-title" value="English Global Exam · 4º ESO" />
+      </label>
+      <label>Units
+        <select id="exam-units" multiple size="5"></select>
+      </label>
+    </div>
+    <div class="grid two">
+      <div class="panel">
+        <h3>Sections</h3>
+        <div id="exam-sections"></div>
+      </div>
+      <div class="panel">
+        <h3>Options</h3>
+        <label class="checkbox"><input type="checkbox" id="exam-shuffle" checked /> Shuffle questions</label>
+        <label class="checkbox"><input type="checkbox" id="exam-answerkey" checked /> Include answer key</label>
+        <label>Student name field
+          <select id="exam-name">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="row">
+          <button class="btn" id="exam-preview">Preview</button>
+          <button class="btn primary" id="exam-download">Download PDF</button>
+        </div>
+      </div>
+    </div>
+    <div id="exam-preview-area" class="panel" style="display:none"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Built for revision · <a href="https://github.com/" id="repo-link" target="_blank" rel="noopener">GitHub Pages</a></p>
+</footer>
+
+<script src="data/vocab.js"></script>
+<script src="data/grammar.js"></script>
+<script src="data/exercises.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
