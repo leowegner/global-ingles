@@ -67,13 +67,21 @@
         <select id="vocab-mode">
           <option value="list">List</option>
           <option value="flashcards">Flashcards</option>
-          <option value="quiz">Translation quiz</option>
+          <option value="quiz">Translation quiz (10)</option>
+          <option value="spelling">Spelling test (all)</option>
+          <option value="definition">From English definition</option>
         </select>
       </label>
       <label>Direction
         <select id="vocab-direction">
           <option value="en-es">EN → ES</option>
           <option value="es-en">ES → EN</option>
+        </select>
+      </label>
+      <label>Filter
+        <select id="vocab-filter">
+          <option value="all">All words</option>
+          <option value="todo">Only "to review"</option>
         </select>
       </label>
     </div>
@@ -164,6 +172,7 @@
 <script src="data/vocab.js"></script>
 <script src="data/grammar.js"></script>
 <script src="data/exercises.js"></script>
+<script src="data/definitions.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

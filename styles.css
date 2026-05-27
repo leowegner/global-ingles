@@ -153,6 +153,8 @@ h3 { font-size: 18px; margin: 0 0 12px; }
   font-weight: 600;
 }
 .btn.small { padding: 6px 10px; font-size: 13px; }
+.btn.known { background: linear-gradient(135deg, var(--good), #4ec48a); color: #0b0e15; border-color: transparent; font-weight: 600; }
+.mark-btn { white-space: nowrap; }
 .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
 .checkbox { flex-direction: row !important; align-items: center; gap: 8px; }
 .checkbox input { min-width: 0; }
